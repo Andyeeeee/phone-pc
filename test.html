@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>側邊欄開關示例</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* styles.css */
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      /* 防止橫向滾動條出現 */
+    }
+
+    .sidebar {
+      position: fixed;
+      /* 使用fixed使其覆蓋主內容 */
+      left: 100%;
+      /* 隱藏側邊欄 */
+      top: 60px;
+      /* 保留按鈕空間 */
+      width: 100%;
+      height: calc(100% - 60px);
+      /* 保留按鈕空間 */
+      background-color: #111;
+      color: white;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 1000;
+      /* 確保側邊欄在最上層 */
+    }
+
+
+
+    .sidebar ul li {
+      padding: 8px 16px;
+    }
+
+
+    .sidebar-toggle {
+      position: fixed;
+      top: 0;
+      width: 50px;
+      height: 60px;
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      z-index: 1001;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="sidebar" class="sidebar">
+    <h2>側邊欄</h2>
+    <ul>
+      <li><a href="#">鏈接 1</a></li>
+      <li><a href="#">鏈接 2</a></li>
+      <li><a href="#">鏈接 3</a></li>
+    </ul>
+  </div>
+  <div id="main-content" class="main-content">
+    <h1>主內容</h1>
+    <p>這裡是主內容。</p>
+  </div>
+  <button id="sidebar-toggle" class="sidebar-toggle">☰</button>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="scripts.js"></script>
+  <script>
+    // scripts.js
+
+    $(document).ready(function () {
+      $('#sidebar-toggle').click(function () {
+        $('#sidebar').toggleClass('open');
+      });
+    });
+
+  </script>
+</body>
+
+</html>

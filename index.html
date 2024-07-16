@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/style/bootstrap.css">
+  <link rel="stylesheet" href="/style/all.css">
+  <link rel="stylesheet" href="/style/index.css">
+</head>
+<style>
+  header {
+    background-color: cadetblue;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .icon {
+    height: 60px;
+    width: 120px;
+    background-color: rgb(191, 255, 122);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sarch {
+    width: 30%;
+    height: 40px;
+    background-color: white;
+    border-radius: 20px;
+  }
+
+  .bigul>li {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(252, 126, 29);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .big1 {
+    position: relative;
+  }
+
+  .big1:hover .big1-1 {
+    display: block;
+
+  }
+
+  .big1-1 {
+    display: none;
+    position: absolute;
+    top: 60px;
+    width: inherit;
+    text-align: center;
+    background-color: rgb(252, 126, 29);
+  }
+
+  .big1-1>li {
+    padding: 10px 0;
+  }
+
+  .sidebar {
+    position: fixed;
+    /* 使用fixed使其覆蓋主內容 */
+    left: 100%;
+    /* 隱藏側邊欄 */
+    top: 60px;
+    /* 保留按鈕空間 */
+    width: 100%;
+    height: calc(100% - 60px);
+    /* 保留按鈕空間 */
+    background-color: #111;
+    color: white;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+    /* 確保側邊欄在最上層 */
+    overflow-y: auto;
+
+
+  }
+
+  .sidebar::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  /* 
+  .sidebar ul li {
+    padding: 8px 16px;
+  } */
+
+
+  .sidebar-toggle {
+    width: 50px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    z-index: 1001;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+</style>
+
+<body>
+  <header>
+    <nav class="d-flex">
+      <ul class="d-flex w-100 justify-content-between align-items-center">
+        <li class="icon">icon </li>
+        <li class="d-none d-lg-block w-100 h-100">
+          <ul class="bigul d-flex justify-content-around  h-100">
+            <li class="big1">分類1
+              <ul class="big1-1">
+                <li>分類1-1</li>
+                <li>分類1-2</li>
+                <li>分類1-3</li>
+              </ul>
+            </li>
+            <li class="big1">分類1
+              <ul class="big1-1">
+                <li>分類1-1</li>
+                <li>分類1-2</li>
+                <li>分類1-3</li>
+              </ul>
+            </li>
+            <li class="big1">分類1
+              <ul class="big1-1">
+                <li>分類1-1</li>
+                <li>分類1-2</li>
+                <li>分類1-3</li>
+              </ul>
+            </li>
+            <li class="big1">分類1
+              <ul class="big1-1">
+                <li>分類1-1</li>
+                <li>分類1-2</li>
+                <li>分類1-3</li>
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+        <li class="sarch"> </li>
+
+        <button id="sidebar-toggle" class="d-lg-none sidebar-toggle">☰</button>
+
+      </ul>
+
+    </nav>
+
+  </header>
+  <div id="sidebar" class="sidebar">
+    <h2>側邊欄</h2>
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne">
+            Accordion Item #1
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+          aria-labelledby="panelsStayOpen-headingOne">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseTwo">
+            Accordion Item #2
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingTwo">
+          <div class="accordion-body">
+            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse
+            plugin adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+            aria-controls="panelsStayOpen-collapseThree">
+            Accordion Item #3
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingThree">
+          <div class="accordion-body">
+            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+            adds the appropriate classes that we use to style each element. These classes control the overall
+            appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+            CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+            <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/style/bootstrap.bundle.js"></script>
+  <script>
+    // scripts.js
+
+    $(document).ready(function () {
+      $('#sidebar-toggle').click(function () {
+        $('#sidebar').toggleClass('open');
+      });
+    });
+
+  </script>
+</body>
+
+</html>
